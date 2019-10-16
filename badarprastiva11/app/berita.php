@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class berita extends Model
 {
+    use SoftDeletes;
     protected $table='berita';
 
     protected $fillable=[
@@ -13,6 +15,7 @@ class berita extends Model
     ];
 
     protected $casts=[
+        'Deleted_at'=>'datetime'
         
     ];
 }

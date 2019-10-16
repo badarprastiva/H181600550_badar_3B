@@ -8,7 +8,7 @@
                 <div class="card-header">List Artikel</div>   
                              
                 <div class="card-body">
-                <a href="{!! route('artikel.create') !!}" class="btn btn-primary">Tambah Data</a>
+                <a href="{!! route('artikel.create') !!}" class="btn btn-info">Tambah Data</a>
     
                 <table border="1">
                     <tr>
@@ -16,6 +16,7 @@
                         <td>Judul</td>
                         <td>Isi</td>
                         <td>Users Id</td>
+                        <td>Update</td>
                         <td>Aksi</td>
                     </tr>
 
@@ -26,9 +27,18 @@
                         <td>{!! $item->judul !!}</td>
                         <td>{!! $item->isi !!}</td>
                         <td>{!! $item->users_id !!}</td>
+                        <td>{!! $item->updated_at !!}</td>
                         <td>
                         <a href="{!! route('artikel.show' ,[$item->id]) !!}"  
-                                class="btn btn-sm btn-primary">Lihat</a>                   
+                                class="btn btn-sm btn-info">Lihat</a>
+                        <a href="{!! route('artikel.edit' ,[$item->id]) !!}"  
+                                class="btn btn-sm btn-success">Ubah</a>    
+
+                        {!! Form::open(['route'=> ['artikel.destroy', $item->id], 'method'=>'delete']) !!}
+                        
+                        {!! Form::submit('Hapus',['class'=>'btn btn-danger','onclick'=>"return confirm('Apakah Anda Yakin ingin Menghapus Data ini?')"]); !!}
+
+                        {!! Form::close() !!}                     
                     </tr>
 
                         @endforeach
