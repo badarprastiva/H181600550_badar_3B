@@ -14,6 +14,35 @@
 </div>
 
 <div class="form-group row">
+    <label for="kategori_galeri_id" class="col-md-2 col-form-label text-md-right">{{ __('Kategori Galeri') }}</label>
+
+        <div class="col-md-10">
+            {!! Form::select('kategori_galeri_id', $KategoriGaleri,null, ["class"=>"form-control","required"]) !!}
+            
+                @error('kategori_galeri_id')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+        </div>
+</div>
+
+
+<div class="form-group row">
+    <label for="path" class="col-md-2 col-form-label text-md-right">{{ __('path') }}</label>
+
+        <div class="col-md-10">
+            {!! Form::file('path',null,['class'=>'form-control']); !!}
+            
+                @error('path')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+        </div>
+</div>
+
+<div class="form-group row">
     <label for="keterangan" class="col-md-2 col-form-label text-md-right">{{ __('keterangan') }}</label>
 
         <div class="col-md-10">
@@ -27,34 +56,7 @@
         </div>
 </div>
 
-<div class="form-group row">
-    <label for="path" class="col-md-2 col-form-label text-md-right">{{ __('path') }}</label>
 
-        <div class="col-md-10">
-            <input id="path" type="text" class="form-control @error('path') is-invalid @enderror" name="path" value="{{ old('path') }}" required autofocus>
-            
-                @error('path')
-                <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-        </div>
-</div>
-
-
-<div class="form-group row">
-    <label for="kategori_galeri_id" class="col-md-2 col-form-label text-md-right">{{ __('Kategori Galeri') }}</label>
-
-        <div class="col-md-10">
-            {!! Form::select('kategori_galeri_id', $KategoriGaleri,null, ["class"=>"form-control","required"] ) !!}
-            
-                @error('kategori_galeri_id')
-                <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-        </div>
-</div>
 
 {!! Form::hidden('users_id',Auth::id() ); !!}
 

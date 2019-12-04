@@ -14,8 +14,8 @@
                     <tr>
                         <td>Id</td>
                         <td>nama</td>
-                        <td>keterangan</td>
                         <td>path</td>
+                        <td>keterangan</td>
                         <td>Users Id</td>
                         <td>create</td>
                         <td>Aksi</td>
@@ -26,11 +26,13 @@
                     <tr>
                         <td>{!! $item->id !!}</td>
                         <td>{!! $item->nama !!}</td>
+                        <td><img src="{!! asset ($item->path) !!}" width="100px"></td>
                         <td>{!! $item->keterangan !!}</td>
-                        <td>{!! $item->path !!}</td>
+                        <td>{!! $item->kategori_galeri_id !!}</td>
                         <td>{!! $item->users_id !!}</td>
                         <td>{!! $item->created_at->format('d/m/Y H:i:s') !!}</td>
                         <td>
+
                         <a href="{!! route('galeri.show' ,[$item->id]) !!}"  
                                 class="btn btn-sm btn-info">Lihat</a>
                         <a href="{!! route('galeri.edit' ,[$item->id]) !!}"  
